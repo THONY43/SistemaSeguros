@@ -1,7 +1,16 @@
-FROM node:18-alpine
+# Usa una imagen oficial de Node.js basada en Debian
+FROM node:20
+
 WORKDIR /app
+
 COPY package*.json ./
-RUN npm install
+
+RUN npm ci
+
 COPY . .
+
 RUN npm run build
+
+EXPOSE 3000
+
 CMD ["npm", "run", "start:prod"]

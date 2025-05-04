@@ -1,43 +1,45 @@
-version: '3.8'
-
 services:
   mysql:
     image: mysql:8.0
     container_name: mysql-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: rootpassword  # Usa una contraseña segura
       MYSQL_DATABASE: segurosdb
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
 
   backend:
-    build: ./backend
+    build:
+      context: ./backend
     container_name: nest-backend
     restart: always
+    depends_on:
+      - mysql
     ports:
       - "3000:3000"
     environment:
-      - DB_HOST=mysql
-      - DB_PORT=3306
-      - DB_USER=root
-      - DB_PASS=rootpassword
-      - DB_NAME=segurosdb
-    depends_on:
-      - mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASS: rootpassword
+      DB_NAME: segurosdb
     networks:
       - app-network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
     container_name: angular-frontend
     restart: always
-    ports:
-      - "4200:80"
     depends_on:
       - backend
+    ports:
+      - "4200:80"
     networks:
       - app-network
 
