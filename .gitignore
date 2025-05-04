@@ -1,0 +1,87 @@
+# Node.js
+node_modules/        # Carpeta de dependencias global de Node (en general)
+dist/                # Salida de compilación general
+build/               # Carpeta de compilación
+tmp/                 # Archivos temporales generales
+*.log                # Archivos de log comunes
+npm-debug.log*       # Archivos de log de npm
+yarn-error.log       # Archivos de error de yarn
+
+# Logs
+logs/                # Logs generados por el sistema
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+
+# Archivos del sistema
+.DS_Store            # Archivos de macOS
+Thumbs.db            # Archivos de Windows
+
+# IDEs y editores
+.idea/               # Archivos y configuraciones de IntelliJ IDEA / WebStorm
+.project
+.classpath
+.c9/                 # Configuración de Cloud9
+*.launch
+.settings/           # Configuraciones de Eclipse
+*.sublime-workspace  # Archivos de Sublime Text
+.history/            # Archivos de historial de VSCode
+
+# Archivos de configuración de Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Archivos de entorno (variables sensibles)
+.env                 # Archivos de variables de entorno (no subir datos sensibles)
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Archivos temporales y de compilación
+.temp                # Carpeta temporal
+.tmp                 # Carpeta temporal
+pids                 # Archivos de identificación de proceso
+*.pid
+*.seed
+*.pid.lock
+
+# Informes de diagnóstico
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json   # Archivos de diagnóstico generados por Node.js
+
+# Angular Cache (solo frontend)
+frontend/.angular/cache/     # Caché de Angular
+
+# Angular y Node específicos
+frontend/node_modules/       # Node modules del frontend (Angular)
+frontend/dist/               # Salida de compilación de Angular
+frontend/tmp/                # Archivos temporales generados en Angular
+frontend/out-tsc/            # Directorio de salida para Angular
+frontend/bazel-out/          # Archivos generados por Bazel si usas esa herramienta
+
+# NestJS Cache y Node_modules (solo backend)
+backend/node_modules/        # Node modules del backend (NestJS)
+backend/dist/                # Salida de compilación de NestJS
+backend/build/               # Carpeta de compilación de NestJS
+backend/tmp/                 # Archivos temporales generados en NestJS
+backend/.angular/cache/      # Caché de Angular si el frontend está en el mismo directorio
+backend/.env                 # Archivos de entorno del backend
+
+# Miscellaneous
+.sass-cache/                 # Caché de SASS
+connect.lock                 # Archivo de lock de Conect (si usas esa librería)
+coverage/                    # Carpetas de cobertura de pruebas
+libpeerconnection.log        # Archivos de logs de WebRTC
+testem.log                   # Archivos de log de testem
+typings/                     # Tipos de TypeScript
+
+# Carpetas .git de proyectos internos (para evitar submódulos)
+**/.git/
+
+# Archivos de datos específicos del entorno
+mysql_data/                  # Datos de MySQL (si los tienes en el proyecto)
