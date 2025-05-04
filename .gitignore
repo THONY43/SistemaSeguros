@@ -85,3 +85,4 @@ typings/                     # Tipos de TypeScript
 
 # Archivos de datos específicos del entorno
 mysql_data/                  # Datos de MySQL (si los tienes en el proyecto)
+.env
