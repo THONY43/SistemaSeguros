@@ -21,11 +21,14 @@ services:
       - "3000:3000"
     environment:
       - DB_HOST=mysql
+      - DB_PORT=3306
       - DB_USER=root
       - DB_PASS=rootpassword
       - DB_NAME=segurosdb
     depends_on:
       - mysql
+    networks:
+      - app-network
 
   frontend:
     build: ./frontend
@@ -35,7 +38,12 @@ services:
       - "4200:80"
     depends_on:
       - backend
+    networks:
+      - app-network
 
 volumes:
   mysql_data:
 
+networks:
+  app-network:
+    driver: bridge
